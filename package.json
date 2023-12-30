@@ -1,0 +1,21 @@
+{
+  "name": "hello-actix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.rs",
+  "scripts": {
+    "build": "pnpm install && pnpm tailwindcss -i ./static/style.css -o ./dist/tailwind.css --minify && cargo build",
+    "tailwind": "pnpm tailwindcss -i ./static/style.css -o ./dist/tailwind.css --minify --watch",
+    "server": "cargo watch -x run",
+    "test": "cargo test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "htmx.org": "^1.9.10"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
