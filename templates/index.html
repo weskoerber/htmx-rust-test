@@ -9,9 +9,11 @@
     <body>
         <h1 class="text-8xl font-black">Actix HTML</h1>
         <button hx-get="/clicked" class="rounded bg-sky-500 p-2.5 text-white">HTMX</button>
-        <ol>
+        <button id="list-add" class="rounded bg-sky-500 p-2.5 text-white">+</button>
+        <button id="list-remove" class="rounded bg-sky-500 p-2.5 text-white">-</button>
+        <ol id="list">
             {% for i in iter %}
-                {{ i }}
+            <li>{{ i }}</li>
             {% endfor %}
         </ol>
     </body>
