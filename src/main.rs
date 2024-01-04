@@ -31,7 +31,12 @@ async fn main() -> std::io::Result<()> {
                     .use_etag(true),
             )
             .service(
-                Files::new("/js", "./node_modules")
+                Files::new("/dist", "./node_modules")
+                    .use_last_modified(true)
+                    .use_etag(true),
+            )
+            .service(
+                Files::new("/js", "./js")
                     .use_last_modified(true)
                     .use_etag(true),
             )
