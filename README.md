@@ -1,4 +1,4 @@
-# Rust + Tailwind + HTMX = ???
+# Rust + Tailwind + HTMX + Askama = ???
 
 ## Getting Started
 

@@ -1,18 +1,23 @@
 use actix_files::Files;
 use actix_web::{get, web, App, HttpServer, Responder};
-use components::{buttons::Button, buttons::Styled, page};
+use askama::Template;
+use askama_actix::TemplateToResponse;
 use maud::html;
 
 mod components;
 
+#[derive(Template)]
+#[template(path = "index.html")]
+struct IndexTemplate {
+    iter: Vec<i32>,
+}
+
 #[get("/")]
 async fn index() -> impl Responder {
-    page::page(html! {
-        body {
-            h1 ."text-8xl font-black" { "Actix HTML" }
-            button hx-get="/clicked" .(Button::DEFAULT) { "HTMX" }
-        }
-    })
+    let index = IndexTemplate {
+        iter: (0..10).collect(),
+    };
+    index.to_response()
 }
 
 #[actix_web::main]
